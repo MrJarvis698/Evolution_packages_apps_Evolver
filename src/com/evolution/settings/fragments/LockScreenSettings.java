@@ -58,6 +58,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
+    private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private static final String LOCKSCREEN_ALBUM_ART_FILTER = "lockscreen_album_art_filter";
     private static final String LOCKSCREEN_CLOCK = "lockscreen_clock";
@@ -67,6 +68,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private FingerprintManager mFingerprintManager;
     private PreferenceCategory mFODIconPickerCategory;
     private SwitchPreference mFingerprintVib;
+    private SwitchPreference mFpKeystore;
     private SystemSettingListPreference mArtFilter;
     private SystemSettingMasterSwitchPreference mClockEnabled;
     private SystemSettingMasterSwitchPreference mInfoEnabled;
@@ -97,8 +99,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintVib = findPreference(FINGERPRINT_VIB);
+        mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
         if (mFingerprintManager == null) {
             prefScreen.removePreference(mFingerprintVib);
+            prefScreen.removePreference(mFpKeystore);
         } else {
             mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));

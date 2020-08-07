@@ -117,6 +117,10 @@
     <string name="fprint_sucess_vib_title">Fingerprint authentication vibration</string>
     <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
 
+    <!-- Fingerprint unlock -->
+    <string name="fp_unlock_keystore_title">Force FingerPrint</string>
+    <string name="fp_unlock_keystore_summary">Unlock device with Fingerprint after Reboot</string>
+
     <!-- USB configuration -->
     <string name="usb_default_config_title">USB configuration</string>
     <string name="usb_default_config_summary">Choose the default behavior when connected to a device via USB</string>
